@@ -14,28 +14,19 @@ from pathlib import Path
 
 from setuptools import find_packages, setup
 
-version = '0.0.1.dev0'
-sha = 'Unknown'
-src_folder = 'pyrodataset'
-package_index = 'pyrodataset'
+version = "0.0.1"
+src_folder = "pyrodataset"
+package_index = "pyrodataset"
 
 cwd = Path(__file__).parent.absolute()
 
-if os.getenv('BUILD_VERSION'):
-    version = os.getenv('BUILD_VERSION')
-else:
-    try:
-        sha = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=cwd).decode('ascii').strip()
-    except Exception:
-        pass
-    if sha != 'Unknown':
-        version += '+' + sha[:7]
+
 print(f"Building wheel {package_index}-{version}")
 
-with open(cwd.joinpath(src_folder, 'version.py'), 'w') as f:
+with open(cwd.joinpath(src_folder, "version.py"), "w") as f:
     f.write(f"__version__ = '{version}'\n")
 
-with open('README.md') as f:
+with open("README.md") as f:
     readme = f.read()
 
 _deps = [
@@ -43,21 +34,11 @@ _deps = [
     "pandas>=0.25.2",
     "torch>=1.8.0",
     "torchvision>=0.9.0",
-    "tqdm>=4.20.0",
-    "requests>=2.20.0",
-    "ipywidgets>=7.5.1",
-    "moviepy>=1.0.3",
-    "pytesseract>=0.3.4",
+    "scipy>=1.7.2",
     # Testing
-    "PyYAML>=5.1.2",
-    "youtube-dl>=2020.3.24",
-    "pafy>=0.5.5",
     "coverage>=4.5.4",
     # Quality
-    "flake8>=3.9.0",
-    "isort>=5.7.0",
-    "mypy>=0.812",
-    "pydocstyle>=6.0.0",
+    "black>=22.3.0",
     # Docs
     "sphinx<=3.4.3,<3.5.0",
     "sphinx-rtd-theme==0.4.3",
@@ -65,7 +46,9 @@ _deps = [
 ]
 
 # Borrowed from https://github.com/huggingface/transformers/blob/master/setup.py
-deps = {b: a for a, b in (re.findall(r"^(([^!=<>]+)(?:[!=<>].*)?$)", x)[0] for x in _deps)}
+deps = {
+    b: a for a, b in (re.findall(r"^(([^!=<>]+)(?:[!=<>].*)?$)", x)[0] for x in _deps)
+}
 
 
 def deps_list(*pkgs):
@@ -77,27 +60,17 @@ install_requires = [
     deps["pandas"],
     deps["torch"],
     deps["torchvision"],
-    deps["tqdm"],
-    deps["requests"],
-    deps["ipywidgets"],
-    deps["moviepy"],
-    deps["pytesseract"]
+    deps["scipy"],
 ]
 
 extras = {}
 
 extras["testing"] = deps_list(
-    "PyYAML",
-    "youtube-dl",
-    "pafy",
     "coverage",
 )
 
 extras["quality"] = deps_list(
-    "flake8",
-    "isort",
-    "mypy",
-    "pydocstyle",
+    "black",
 )
 
 extras["docs"] = deps_list(
@@ -106,48 +79,50 @@ extras["docs"] = deps_list(
     "docutils",
 )
 
-extras["dev"] = (
-    extras["testing"]
-    + extras["quality"]
-    + extras["docs"]
-)
+extras["dev"] = extras["testing"] + extras["quality"] + extras["docs"]
 
 
 setup(
     name=package_index,
     version=version,
-    author='PyroNear Contributors',
-    author_email='pyronear.d4g@gmail.com',
-    maintainer='Pyronear',
-    description='Datasets and models for wildfire detection in PyTorch',
+    author="PyroNear Contributors",
+    author_email="contact@pyronear.org",
+    maintainer="Pyronear",
+    description="Generating smoke pyrodataset",
     long_description=readme,
     long_description_content_type="text/markdown",
-    url='https://github.com/pyronear/pyro-dataset',
-    download_url='https://github.com/pyronear/pyro-dataset/tags',
-    license='Apache',
+    url="https://github.com/pyronear/pyro-dataset",
+    download_url="https://github.com/pyronear/pyro-dataset/tags",
+    license="Apache",
     classifiers=[
-        'Development Status :: 4 - Beta',
-        'Intended Audience :: Developers',
-        'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: Apache Software License',
-        'Natural Language :: English',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Topic :: Scientific/Engineering',
-        'Topic :: Scientific/Engineering :: Mathematics',
-        'Topic :: Scientific/Engineering :: Artificial Intelligence',
-        'Topic :: Software Development',
-        'Topic :: Software Development :: Libraries',
-        'Topic :: Software Development :: Libraries :: Python Modules',
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: Apache Software License",
+        "Natural Language :: English",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Topic :: Scientific/Engineering",
+        "Topic :: Scientific/Engineering :: Mathematics",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Topic :: Software Development",
+        "Topic :: Software Development :: Libraries",
+        "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    keywords=['pytorch', 'deep learning', 'vision', 'models', 'wildfire', 'object detection'],
-    packages=find_packages(exclude=('test',)),
+    keywords=[
+        "pytorch",
+        "deep learning",
+        "vision",
+        "models",
+        "wildfire",
+        "object detection",
+    ],
+    packages=find_packages(exclude=("test",)),
     zip_safe=True,
-    python_requires='>=3.6.0',
+    python_requires=">=3.8.0",
     include_package_data=True,
     install_requires=install_requires,
     extras_require=extras,
-    package_data={'': ['LICENSE']},
+    package_data={"": ["LICENSE"]},
 )

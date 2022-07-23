@@ -109,3 +109,6 @@ conda-dist/
 # yolov5 files
 runs
 *.pt
+
+#Ignore version file
+pyrodataset/version.py

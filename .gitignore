@@ -105,3 +105,6 @@ venv.bak/
 .mypy_cache/
 test/fixtures/videos/
 conda-dist/
+
+# Ignore Data
+Data/

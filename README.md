@@ -82,6 +82,20 @@ You can preview the combination with the dry option
 python datasets/make_dataset.py --dry
 ```
 
+Each dataset has 3 folders:
+
+images with the images of the dataset
+Labels, with one or more subfolders with the various annotations for this dataset
+Subset, text files containing a list of images of the dataset to extract a subset
+
+
+Each dataset can have several annotations, this allows to propose a new annotation in case of task change or new annotation strategy.
+
+
+To create our combined dataset we have to fill in the dataset_config file with three parameters for each dataset:
+Labels, the name of the labeling to use
+Ratio, the percentage of the dataset to use
+Subset, a potential subset to use
 
 
 ## Datasets

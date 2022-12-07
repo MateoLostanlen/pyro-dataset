@@ -1,1 +1,2 @@
 fiftyone
+dvc[gdrive]

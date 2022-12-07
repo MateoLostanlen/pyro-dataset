@@ -6,10 +6,10 @@ Everything you need to know to contribute efficiently to the project.
 
 ## Codebase structure
 
-- [pyrodataset](https://github.com/pyronear/pyro-dataset/blob/master/pyrodataset) - The actual pyrodataset library
-- [references](https://github.com/pyronear/pyro-dataset/blob/master/references) - Scripts to reproduce performances
-- [docs](https://github.com/pyronear/pyro-dataset/blob/master/docs) - Sphinx documentation building
-- [test](https://github.com/pyronear/pyro-dataset/blob/master/test) - Python unit tests
+- [pyrodataset](https://github.com/pyronear/pyro-dataset/blob/main/pyrodataset) - The actual pyrodataset library
+- [references](https://github.com/pyronear/pyro-dataset/blob/main/references) - Scripts to reproduce performances
+- [docs](https://github.com/pyronear/pyro-dataset/blob/main/docs) - Sphinx documentation building
+- [tests](https://github.com/pyronear/pyro-dataset/blob/main/tests) - Python unit tests
 
 
 
@@ -99,7 +99,7 @@ git clone https://github.com/YOUR_USERNAME/pyro-dataset.git
 cd pyro-dataset
 ```
 
-3. Set remotes to original project and merge new contributions onto master.
+3. Set remotes to original project and merge new contributions onto main.
 ```shell
 # add the original repository as remote repository called "upstream"
 git remote add upstream https://github.com/pyronear/pyro-dataset.git
@@ -110,11 +110,11 @@ git remote -v
 # fetch all changes from the upstream repository
 git fetch upstream
 
-# switch to the master branch of your fork
-git checkout master
+# switch to the main branch of your fork
+git checkout main
 
 # merge changes from the upstream repository into your fork
-git merge upstream/master
+git merge upstream/main
 ```
 
 4. install the project dependencies
@@ -133,25 +133,25 @@ pip install -e .
 ---
 Once the project is well set up, we are going to detail step by step a usual contributing workflow.
 
-1.  Merge recent contributions onto master (do this frequently to stay up-to-date)
+1.  Merge recent contributions onto main (do this frequently to stay up-to-date)
 ```shell
 # fetch all changes from the upstream repository
 git fetch upstream
 
-# switch to the master branch of your fork
-git checkout master
+# switch to the main branch of your fork
+git checkout main
 
 # merge changes from the upstream repository into your fork
-git merge upstream/master
+git merge upstream/main
 ```
 
-Note: Since, we are going to create features on separate local branches so they'll be merged onto **original project remote master** via pull requests, we may use **pulling** instead of fetching & merging. This way our **_local_ master branch** will reflect **_remote_ original project**. We don't expect to make changes on local master in this workflow so no conflict should arise when merging:
+Note: Since, we are going to create features on separate local branches so they'll be merged onto **original project remote main** via pull requests, we may use **pulling** instead of fetching & merging. This way our **_local_ main branch** will reflect **_remote_ original project**. We don't expect to make changes on local main in this workflow so no conflict should arise when merging:
 ```shell
-# switch to local master
-git checkout master
+# switch to local main
+git checkout main
 
-#  merge remote master of original project onto local master
-git pull upstream/master
+#  merge remote main of original project onto local main
+git pull upstream/main
 ```
 
 2. Create a local feature branch to work on
@@ -168,8 +168,8 @@ git checkout -b pioneering-feature-branch
 # Switch to feature branch
 git checkout pioneering-feature-branch
 
-# Rebase on master
-git rebase master
+# Rebase on main
+git rebase main
 ```
 
 5. Push your changes on remote feature branch.

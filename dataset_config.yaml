@@ -1,7 +1,7 @@
 ALERTE_WILDFIRE:
   Nvseismolab_set1:
     label: pyronear_v0
-    ratio: [1, 0.1]
+    ratio: [1, 0.05]
     subset: ["pyronear_v0_smoke.txt",  "pyronear_v0_no_smoke.txt"]
 HPWREN:
   AiForManKind_cloud:
@@ -31,7 +31,7 @@ HPWREN:
 PYRONEAR:
   ardeche_set0:
     label: pyronear_v0
-    ratio: 0.2
+    ratio: 0.1
     subset: "false_positive.txt"
   gironde_set0:
     label: pyronear_v0
@@ -39,7 +39,7 @@ PYRONEAR:
     subset: null
   fp:
     label: pyronear_v0
-    ratio: 0.2
+    ratio: 0.1
     subset: null
   wildfires:
     label: pyronear_v0

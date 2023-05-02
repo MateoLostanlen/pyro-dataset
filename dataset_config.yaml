@@ -6,15 +6,15 @@ ALERTE_WILDFIRE:
 HPWREN:
   AiForManKind_cloud:
     label: pyronear_v0
-    ratio: 0.05
+    ratio: 0.01
     subset: null
   AiForManKind_fog:
     label: pyronear_v0
-    ratio: 0.1
+    ratio: 0.02
     subset: null
   AiForManKind_sunrise:
     label: pyronear_v0
-    ratio: 0.1
+    ratio: 0.02
     subset: null
   AiForManKind_v1:
     label: pyronear_v0
@@ -34,6 +34,14 @@ PYRONEAR:
     ratio: 0.2
     subset: "false_positive.txt"
   gironde_set0:
+    label: pyronear_v0
+    ratio: 0
+    subset: null
+  fp:
+    label: pyronear_v0
+    ratio: 0.2
+    subset: null
+  wildfires:
     label: pyronear_v0
     ratio: 0
     subset: null

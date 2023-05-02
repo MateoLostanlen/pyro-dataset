@@ -39,11 +39,11 @@ PYRONEAR:
     subset: null
   fp:
     label: pyronear_v0
-    ratio: 0.1
+    ratio: 0.2
     subset: null
   wildfires:
-    label: pyronear_v0
-    ratio: 0
+    label: pyronear_v1
+    ratio: 0.3
     subset: null
 UNKNOWN:
   fog_clouds:

@@ -6,15 +6,15 @@ ALERTE_WILDFIRE:
 HPWREN:
   AiForManKind_cloud:
     label: pyronear_v0
-    ratio: 0.01
+    ratio: 0.001
     subset: null
   AiForManKind_fog:
     label: pyronear_v0
-    ratio: 0.02
+    ratio: 0.01
     subset: null
   AiForManKind_sunrise:
     label: pyronear_v0
-    ratio: 0.02
+    ratio: 0.01
     subset: null
   AiForManKind_v1:
     label: pyronear_v0
@@ -39,18 +39,18 @@ PYRONEAR:
     subset: null
   fp:
     label: pyronear_v0
-    ratio: 0.2
+    ratio: 1.0
     subset: null
   wildfires:
-    label: pyronear_v1
-    ratio: 0.3
+    label: pyronear_v0
+    ratio: 1.0
     subset: null
 UNKNOWN:
   fog_clouds:
     label: pyronear_v0
-    ratio: 0
+    ratio: 0.2
     subset: null
   smoke:
     label: pyronear_v0
-    ratio: 0
+    ratio: 1.0
     subset: null

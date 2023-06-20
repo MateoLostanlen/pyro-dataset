@@ -3,7 +3,7 @@ import glob
 import yaml
 import shutil
 from datetime import datetime
-
+import random
 
 def main(args):
 
@@ -69,6 +69,7 @@ def main(args):
         ds_size[ds_name] = {}
         ds_size[ds_name]["images"] = len(imgs)
         nb_smoke = 0
+        random.shuffle(imgs)
         for i, img_file in enumerate(imgs):
             base_file = os.path.split(img_file)[1]
             train_val = "train" if i < len(imgs) * args.train_val_split else "val"

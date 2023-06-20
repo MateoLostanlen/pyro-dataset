@@ -1,8 +1,17 @@
 ALERTE_WILDFIRE:
   Nvseismolab_set1:
     label: pyronear_v0
-    ratio: [1, 0.05]
+    ratio: [1, 0.02]
     subset: ["pyronear_v0_smoke.txt",  "pyronear_v0_no_smoke.txt"]
+  fp:
+    label: pyronear_v0
+    ratio: 1
+    subset: null
+    dt: 1500
+  pyronear:
+    label: pyronear_v0
+    ratio: 1
+    subset: null
 HPWREN:
   AiForManKind_cloud:
     label: pyronear_v0
@@ -31,7 +40,7 @@ HPWREN:
 PYRONEAR:
   ardeche_set0:
     label: pyronear_v0
-    ratio: 0.05
+    ratio: 0.1
     subset: "false_positive.txt"
   gironde_set0:
     label: pyronear_v0
@@ -41,9 +50,19 @@ PYRONEAR:
     label: pyronear_v0
     ratio: 0.5
     subset: null
+    dt: 1500
+  fp_adf:
+    label: pyronear_v0
+    ratio: 1
+    subset: null
+    dt: 120
   wildfires:
     label: pyronear_v0
     ratio: 1.0
+    subset: null
+  adf:
+    label: pyronear_v0
+    ratio: 1
     subset: null
 UNKNOWN:
   fog_clouds:

@@ -2,6 +2,7 @@ import os
 import glob
 import yaml
 import shutil
+from datetime import datetime
 
 
 def main(args):
@@ -25,10 +26,25 @@ def main(args):
         subsets = config[source][name]["subset"]
         if subsets is None:
             imgs = glob.glob(dataset + "/*")
-            ratio = config[source][name]["ratio"]
-            if ratio == 0:
-                continue
-            imgs = imgs[:: int(1 / ratio)]
+            imgs.sort()
+            if "dt" in config[source][name].keys():
+                prev_cam = ""
+                prev_date = datetime.now()
+                files = []
+                dt = config[source][name]["dt"] * 60
+                for file in imgs:
+                    cam, date_str = os.path.basename(file).split("2023")
+                    date = datetime.strptime("2023" + date_str.split('.jpg')[0], "%Y_%m_%dT%H_%M_%S")
+                    if cam!=prev_cam or abs((date - prev_date).total_seconds()) > dt:
+                        files.append(file)
+                        prev_cam = cam
+                        prev_date = date
+                imgs = files
+            else:
+                ratio = config[source][name]["ratio"]
+                if ratio == 0:
+                    continue
+                imgs = imgs[:: int(1 / ratio)]
         else:
             if not isinstance(subsets, list):
                 subsets = [subsets]
